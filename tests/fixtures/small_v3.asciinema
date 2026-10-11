@@ -1,0 +1,10 @@
+{"version": 3, "term": {"cols": 100, "rows": 30, "type": "xterm-256color"}, "timestamp": 1791633600, "idle_time_limit": 1.5}
+# commentaire v3
+[0.5, "o", "\u001b[1;31m[Oct 10, 2026 - 11:00:00 (UTC)]\u001b[0m exegol-htb /workspace # "]
+[1.5, "o", "whoami\r\n"]
+[0.1, "o", "root\r\n"]
+[0.1, "o", "\u001b[1;31m[Oct 10, 2026 - 11:00:00 (UTC)]\u001b[0m exegol-htb /workspace # "]
+[10.0, "o", "id\r\n"]
+[0.1, "o", "uid=0(root)\r\n"]
+[0.1, "m", ""]
+[0.6, "x", "0"]

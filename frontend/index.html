@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>castdeck</title>
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <header id="top">
+      <div class="brand">cast<span>deck</span></div>
+      <form id="search" autocomplete="off">
+        <input id="q" type="search" placeholder="Rechercher dans toutes les sessions…  ( / )" spellcheck="false" />
+        <select id="q-kind" title="Type de résultats">
+          <option value="all">Tout</option>
+          <option value="cmd">Commandes</option>
+          <option value="output">Sorties</option>
+        </select>
+        <label class="range" title="Plage horaire (optionnelle)">
+          <input id="q-from" type="datetime-local" step="60" />
+          <span>→</span>
+          <input id="q-to" type="datetime-local" step="60" />
+        </label>
+      </form>
+      <div id="status" title="Indexation"></div>
+      <div id="results" hidden></div>
+    </header>
+
+    <main>
+      <aside id="left" class="panel">
+        <div class="panel-head"><h2>Sessions</h2><span id="sessions-count" class="muted"></span></div>
+        <ul id="sessions" class="list"></ul>
+        <div class="panel-head queue-head">
+          <h2>File de lecture</h2>
+          <label class="switch" title="Enchaîner automatiquement la session suivante">
+            <input id="autonext" type="checkbox" /> enchaîner
+          </label>
+        </div>
+        <ol id="queue" class="list"></ol>
+        <p id="queue-empty" class="muted hint">Ajoutez des sessions avec <kbd>+</kbd>, réordonnez par glisser-déposer.</p>
+      </aside>
+
+      <section id="center">
+        <div id="infobar">
+          <span id="session-name" class="muted">Aucune session</span>
+          <span id="abs-time" title="Heure absolue (début de session + position)"></span>
+          <span class="spacer"></span>
+          <label>vitesse
+            <select id="speed">
+              <option value="0.5">0.5×</option>
+              <option value="1" selected>1×</option>
+              <option value="2">2×</option>
+              <option value="4">4×</option>
+            </select>
+          </label>
+          <label class="switch" title="Compresser les temps morts">
+            <input id="compress" type="checkbox" /> compresser les temps morts
+          </label>
+        </div>
+        <div id="stage">
+          <div id="player"><div class="empty">Choisissez une session à gauche.</div></div>
+          <div id="timeline" aria-label="Timeline"><div class="track"></div><div class="playhead"></div></div>
+        </div>
+        <div id="toolbar">
+          <form id="goto" autocomplete="off">
+            <input id="goto-input" placeholder="aller à : 11:04, hier 11:00, +5m, @00:12:30" spellcheck="false" />
+          </form>
+          <button id="btn-capture" title="Capture PNG (c)">Capture</button>
+          <button id="btn-capture-copy" title="Copier la capture dans le presse-papier">Copier l'image</button>
+          <button id="btn-copy-screen" title="Copier le texte de l'écran">Copier le texte</button>
+          <form id="bookmark-form" autocomplete="off">
+            <button id="btn-bookmark" type="button" title="Bookmark ici (b)">Bookmark ici</button>
+            <input id="bookmark-label" placeholder="label du bookmark ↵" hidden />
+          </form>
+        </div>
+        <p class="keys muted">
+          <kbd>espace</kbd> lecture · <kbd>←</kbd><kbd>→</kbd> ±5 s · <kbd>⇧←</kbd><kbd>⇧→</kbd> commande · <kbd>[</kbd><kbd>]</kbd> marker ·
+          <kbd>/</kbd> recherche · <kbd>b</kbd> bookmark · <kbd>c</kbd> capture · <kbd>f</kbd> plein écran
+        </p>
+      </section>
+
+      <aside id="right" class="panel">
+        <div class="tabs">
+          <button class="tab active" data-tab="commands">Commandes <span id="cmd-count" class="muted"></span></button>
+          <button class="tab" data-tab="bookmarks">Bookmarks <span id="bm-count" class="muted"></span></button>
+        </div>
+        <div id="tab-commands" class="tab-body">
+          <div class="filter-row">
+            <input id="cmd-filter" placeholder="filtrer : nmap  ctx=%2" spellcheck="false" />
+            <button id="btn-copy-cmds" title="Copier toutes les commandes visibles">Copier tout</button>
+          </div>
+          <p id="cmd-source" class="muted hint" hidden></p>
+          <ul id="commands" class="list"></ul>
+        </div>
+        <div id="tab-bookmarks" class="tab-body" hidden>
+          <ul id="bookmarks" class="list"></ul>
+        </div>
+      </aside>
+    </main>
+    <div id="tooltip" hidden></div>
+    <div id="toast"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

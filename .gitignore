@@ -1,0 +1,27 @@
+# --- Logs de mission : ne JAMAIS les publier -----------------------------
+# (sessions, commandes et panes à la racine ; les fixtures de tests/ restent suivies)
+/*.asciinema
+/*.cast
+/commands.log
+/panes_*.log
+/logs/
+.castdeck/
+*:Zone.Identifier
+
+# --- Python ---------------------------------------------------------------
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+
+# --- Front ----------------------------------------------------------------
+# castdeck/static/ (front buildé) est versionné : pipx install sans Node.
+frontend/node_modules/
+
+# --- Divers ---------------------------------------------------------------
+.DS_Store
+.vscode/
+.idea/

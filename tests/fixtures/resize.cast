@@ -1,0 +1,7 @@
+{"version": 2, "width": 40, "height": 10, "timestamp": 1791637200}
+[0.1, "o", "hello\r\n"]
+[1.0, "r", "120x40"]
+[1.5, "o", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n"]
+[2.0, "r", "bad"]
+[2.5, "o", "fin\r\n"]
+[3.0, "o", "tronq
